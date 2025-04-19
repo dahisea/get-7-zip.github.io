@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+
+<head>
+    <meta http-equiv="CONTENT-TYPE" content="TEXT/HTML; CHARSET=UTF-8">
+    <link href="/style.css" rel="stylesheet" type="text/css">
+    <title>【官方版】常见问题解答(FAQ) - 7-Zip 中国官网 加速下载</title>
+    <meta name="keywords" content=", 压缩软件, 归档工具, 高压缩比, 免费, 开源, 解压工具, 7z格式">
+</head>
+
+<body>
+    <table cellspacing="10" cellpadding="10" border="0" width="100%">
+        <tbody>
+            <tr>
+                <td class="MenuColumn" valign="top">
+                    <table cellpadding="2" cellspacing="0" border="0" width="100%">
+                        <tbody>
+                            <tr>
+                                <td><img width="110" height="63" src="/7ziplogo.png" alt="7-Zip" border="0"></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <hr>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table cellpadding="2" cellspacing="0" border="0">
+                        <tbody>
+                            <tr>
+                                <td><span class="MenuCurrent">首页</span></td>
+                            </tr>
+                            <tr>
+                                <td><a href="7z.html" class="MenuLink">7z格式</a></td>
+                            </tr>
+                            <tr>
+                                <td><a href="sdk.html" class="MenuLink">LZMA SDK</a></td>
+                            </tr>
+                            <tr>
+                                <td><a href="https://mirror.nju.edu.cn/7-zip/" class="MenuLink">下载（NJU）</a></td>
+                            </tr>
+                            <tr>
+                                <td><a href="faq.html" class="MenuLink">常见问题</a></td>
+                            </tr>
+                            <tr>
+                                <td><a href="support.html" class="MenuLink">技术支持</a></td>
+                            </tr>
+                            <tr>
+                                <td><a href="links.html" class="MenuLink">相关链接</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table cellpadding="2" cellspacing="0" border="0" width="100%">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <hr>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p><b>当前位于镜像中文站点</b><br><br></p>
+                    <hr>
+                    <p><a href="https://dahi.icu">Dahi.icu</a></p>
+                </td>
+                <td valign="top">
+                    <h1>常见问题解答(FAQ)</h1>
+                    <ul>
+                        <li><a href="#user_faq">用户常见问题</a></li>
+                        <li><a href="#developer_faq">开发者常见问题</a></li>
+                    </ul>
+                    <h2><a name="user_faq"></a>用户常见问题</h2>
+                    <h4>我可以在商业机构中使用7-Zip吗？</h4>
+                    <p>可以，7-Zip是免费软件。您可以在任何计算机上使用它，无需注册或付费。</p>
+                    <h4>如何在Windows 7和Vista中设置7-Zip的文件关联？</h4>
+                    <p>您需要以管理员身份运行7-Zip文件管理器。右键点击7-Zip文件管理器图标，选择<b>以管理员身份运行</b>，然后就可以更改文件关联和其他设置了。</p>
+                    <h4>为什么新版7-Zip创建的7z压缩包可能比旧版创建的更大？</h4>
+                    <p>从15.06版本开始，7-Zip默认使用不同的文件排序方式来创建固实压缩包。</p>
+                    <p>旧版7-Zip(15.06之前)使用"按类型"(按扩展名)排序。</p>
+                    <p>新版7-Zip支持两种排序方式：</p>
+                    <ul>
+                        <li>按名称排序 - 默认方式</li>
+                        <li>按类型排序 - 在"添加到压缩包"窗口的<b>参数</b>字段中指定'<b>qs</b>'参数(或命令行版本使用<b>-mqs</b>开关)</li>
+                    </ul>
+                    <p>当字典大小小于文件总大小时，不同排序方式可能导致压缩率差异很大。如果不同文件夹中有相似文件，在某些情况下"按类型"排序可能提供更好的压缩率。</p>
+                    <p>注意"按类型"排序有一些缺点。例如NTFS卷使用"按名称"排序，如果压缩包使用其他排序方式，对非常规排序文件的操作速度可能在HDD设备上下降(HDD的"寻道"操作速度较慢)。</p>
+                    <p>您可以通过以下方法提高压缩率：</p>
+                    <ul>
+                        <li>增加字典大小 - 在不使用'qs'时可能有帮助</li>
+                        <li>在<b>参数</b>字段指定'<b>qs</b>'(或命令行版本使用<b>-mqs</b>开关)</li>
+                    </ul>
+                    <p>如果您认为非常规文件顺序不是问题，且小字典下获得更好压缩率更重要，可以使用'<b>qs</b>'模式。</p>
+                    <h4>为什么7-Zip无法打开某些ZIP压缩包？</h4>
+                    <p>99%的情况下这意味着压缩包包含错误的头部信息。其他ZIP程序可能忽略这些错误而打开压缩包。</p>
+                    <p>如果您有这样的压缩包，请不要联系7-Zip开发人员。请尝试找出创建该压缩包的程序，并告知其开发人员他们的软件不符合ZIP标准。</p>
+                    <p>还有一些ZIP压缩包使用了7-Zip不支持的编码方法，例如WAVPack(WinZip)。</p>
+                    <h4>为什么7-Zip无法打开某些RAR压缩包？</h4>
+                    <p>7-Zip 9.20仅支持RAR 2/3/4格式，不支持RAR5。但最新版7-Zip已支持RAR5压缩包。</p>
+                    <h4>为什么从7-Zip拖拽解压到资源管理器会使用临时文件？</h4>
+                    <p>7-Zip不知道拖放目标的具体路径。只有Windows资源管理器知道确切目标位置。资源管理器需要拖放源文件是已解压到磁盘的文件。因此7-Zip先将文件解压到临时文件夹，然后通知资源管理器这些临时文件的位置，由资源管理器将它们复制到目标文件夹。</p>
+                    <p>要避免使用临时文件，可以使用7-Zip的"解压"命令，或在7-Zip内部拖放。</p>
+                    <h4>为什么命令行版本不将无扩展名文件添加到压缩包？</h4>
+                    <p>您可能使用了*.*通配符。7-Zip不使用操作系统的通配符解析器，因此将*.*视为有扩展名的文件。要处理所有文件，应使用*通配符或完全省略通配符。</p>
+                    <h4>为什么-r开关不按预期工作？</h4>
+                    <p>大多数情况下您不需要-r开关。即使没有-r开关，7-Zip也能压缩子文件夹。</p>
+                    <p>示例1：</p>
+                    <pre>7z.exe a c:\a.7z "C:\Program Files"</pre>
+                    <p>会完整压缩"C:\Program Files"，包括所有子文件夹。</p>
+                    <p>示例2：</p>
+                    <pre>7z.exe a -r c:\a.7z "C:\Program Files"</pre>
+                    <p>会搜索并压缩C:\所有子文件夹中的"Program Files"(例如"C:\WINDOWS"中的)。</p>如果需要仅压缩特定扩展名的文件，可以使用-r开关：
+                    <pre>7z a -r c:\a.zip c:\dir\*.txt</pre>
+                    <p>会压缩c:\dir\及其子文件夹中的所有*.txt文件。</p>
+                    <h4>如何在压缩包中存储完整文件路径？</h4>
+                    <p>7-Zip只存储文件的相对路径(不带盘符前缀)。您可以先将当前目录切换到要压缩文件的公共父目录，然后使用相对路径：</p>
+                    <pre>cd /D C:\dir1\ 7z.exe a c:\a.7z file1.txt dir2\file2.txt</pre>
+                    <h4>为什么7-Zip在32位Windows中不能使用大字典？</h4>
+                    <p>32位Windows每个应用只分配2GB虚拟空间。而且这个2GB块可能被碎片化(例如被某些DLL文件)，因此7-Zip无法分配一个大的连续虚拟空间块。64位Windows没有这些限制。只要物理内存足够，您可以在Windows x64中使用任何大小的字典。</p>
+                    <h4>如何静默安装7-Zip？</h4>
+                    <p>对于exe安装程序：使用"/S"参数进行静默安装，使用/D="C:\Program Files\7-Zip"参数指定"输出目录"。这些选项区分大小写。</p>
+                    <p>对于msi安装程序：使用/q INSTALLDIR="C:\Program Files\7-Zip"参数。</p>
+                    <h4>如何修复损坏的7z压缩包？</h4>
+                    <p>压缩包损坏可能有几种情况：</p>
+                    <ul>
+                        <li>可以打开压缩包看到文件列表，但点击解压或测试命令时出现错误：数据错误或CRC错误</li>
+                        <li>打开压缩包时显示"无法将文件'a.7z'作为压缩包打开"</li>
+                    </ul>
+                    <p>有可能恢复部分数据。请阅读恢复步骤：</p>
+                    <p><a href="recover.html">修复损坏的7z压缩包</a></p><br><br>
+                    <h2><a name="developer_faq"></a>开发者常见问题</h2>
+                    <h4>为什么用Visual C++ 6.0编译7-Zip或LZMA SDK时会出现链接错误？</h4>
+                    <p>编译源代码需要Visual C++ 6.0或更高版本。某些文件还需要微软最新的Platform SDK：</p>
+                    <p>如果使用MSVC，在"工具/选项/目录"中的"包含文件"和"库文件"目录列表顶部指定SDK目录。</p>
+                    <p>最新Platform SDK与MSVC6不兼容，因此MSVC6必须使用Windows Server 2003 PSDK(2003年2月版)。</p>
+                    <h4>我可以在商业应用中使用7-Zip的EXE或DLL文件吗？</h4>
+                    <p>可以，但您必须在文档中声明：(1)使用了7-Zip程序的部分代码，(2)7-Zip基于GNU LGPL许可，(3)提供www.7-zip.org链接以便获取源代码。</p>
+                    <h4>如何在我的应用中添加对7z压缩包的支持？</h4>
+                    <p>一种方法是使用7z.dll或7za.dll(可从sf.net下载)。7za.dll通过COM接口工作，但不使用标准COM接口创建对象。源代码的"CPP\7zip\UI\Client7z"文件夹中有小例子。7-Zip本身就是一个完整例子，因为它也通过这个dll工作。其他使用7za.dll的应用包括WinRAR、PowerArchiver等。</p>
+                    <p>另一种方法是调用命令行版本：7za.exe。</p>
+                    <h4>我可以在商业应用中使用7-Zip的源代码吗？</h4>
+                    <p>由于7-Zip基于GNU LGPL许可，您必须遵守该许可条款。简而言之，任何LGPL代码必须保持LGPL许可。例如，您可以修改7-Zip代码或为其编写包装并编译成DLL；但该DLL的源代码(包括您的修改/添加/包装)必须基于LGPL或GPL许可。您应用中的其他代码可以按您希望的方式许可。这种方案允许用户和开发者修改LGPL代码并重新编译DLL。这是自由软件的核心理念。更多信息请访问：<a href="https://www.gnu.org/">https://www.gnu.org/</a>。 您也可以阅读关于<a href="sdk.html">LZMA SDK</a>的信息，它基于更宽松的许可。</p>
+                    <hr>
+                    <p><small>版权所有 (C) 2024 Igor Pavlov。</small></p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>
